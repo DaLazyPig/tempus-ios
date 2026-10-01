@@ -28,7 +28,7 @@ struct PaywallSheet: View {
     /// *upward*, so the close button and the top of the pass card were the parts that went — the
     /// screen "slightly cut off" reported from Linked ▸ Business Class. The sheet is laid out
     /// against its container now (see `body`) and cannot outgrow it.
-    private var offscreen: CGFloat { UIScreen.main.bounds.height }
+    private var offscreen: CGFloat { TStage.bounds.height }
 
     private var closeRow: some View {
         HStack {
@@ -268,7 +268,7 @@ struct PaywallSheet: View {
     ///
     /// It used to be the last thing inside the `ScrollView`, under the price. That was fine while
     /// the price was one 62pt figure; with two plan cards there instead it fell below the fold, so
-    /// a build with no store showed a dimmed "Start 7 days free" and kept the explanation a scroll
+    /// a build with no store showed a dimmed buy button and kept the explanation a scroll
     /// away. This line carries `billing.error` and `billing.unavailable` as well as the renewal
     /// terms, so it belongs against the control it is about, not at the end of a scroll.
     private var subCopy: some View {
@@ -394,9 +394,10 @@ private struct PaywallDashedLine: View {
 ///   columns start paying off at three or more tiers. There are two.)
 /// * **Annual first and selected on arrival.** A default is taken far more often than a badge
 ///   persuades, and it is the better deal for the member as well as the better retention.
-/// * **Both cards quote a per-month figure**, so $3.33 sits directly above $7.99 and the
-///   comparison needs no arithmetic. The annual *total* is on the line underneath, in full, where
-///   it informs rather than flinches — it is never the biggest number on the screen.
+/// * **Each card leads with what it bills** — $39.99 a year, $7.99 a month — and the annual
+///   card's per-month equivalent is a footnote under its name. It was the other way round (the
+///   $3.33 headline, the total underneath) until App Review rejected build 43 under 3.1.2(c): the
+///   billed amount must be the most conspicuous price, and a calculated one subordinate to it.
 /// * **The badge is `copper100`, not `copper500`.** Copper is already the primary button's colour
 ///   on both of these screens, and a badge in the call-to-action's own paint makes the eye unable
 ///   to separate "the discount" from "the thing to press". The pale end of the same ramp keeps the
@@ -443,10 +444,8 @@ struct PlanPicker: View {
                     Text(annual ? "Annual" : "Monthly")
                         .font(TFont.core(.semibold, compact ? 15 : 16))
                         .foregroundStyle(TColor.textOnDark)
-                    // The annual card's second line is the one that must be unambiguous: the
-                    // figure beside it is per *month*, so this says what will actually be charged,
-                    // and when.
-                    Text(annual ? "\(billing.price(.annual)) billed once a year" : "billed every month")
+                    // The per-month equivalent, small and under the name — see 3.1.2(c) above.
+                    Text(annual ? "\(billing.perMonth(.annual)) a month, billed yearly" : "billed every month")
                         .font(TFont.core(.regular, compact ? 12 : 13))
                         .foregroundStyle(TColor.textOnDarkMuted)
                         .lineLimit(1)
@@ -456,11 +455,11 @@ struct PlanPicker: View {
                 Spacer(minLength: 8)
 
                 VStack(alignment: .trailing, spacing: 1) {
-                    tpText(billing.perMonth(plan), size: priceSize, track: -0.03)
+                    tpText(billing.price(plan), size: priceSize, track: -0.03)
                         .font(TFont.core(.bold, priceSize))
                         .monospacedDigit()
                         .foregroundStyle(TColor.textOnDark)
-                    Text("per month")
+                    Text(annual ? "per year" : "per month")
                         .font(TFont.data(.medium, 10))
                         .tracking(TFont.trackLabel * 10)
                         .foregroundStyle(TColor.textOnDarkMuted)

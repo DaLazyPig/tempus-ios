@@ -147,7 +147,7 @@ struct HomeScreen: View {
             }) {
                 headerIcon(.settings, 20)
             }
-            .measureRect(into: settingsButtonRect, in: .global)
+            .measureRect(into: settingsButtonRect, in: TStage.space)
         }
         .frame(maxWidth: .infinity, alignment: .trailing)
         .padding(.top, 30)
@@ -277,7 +277,7 @@ private struct GoalStrip: View {
         // `.global` so `value.startLocation` lands in the same space `flipButtonRect` is
         // measured in (`.measureRect(..., in: .global)`) — `translation` is a delta and is
         // identical in either space, so this changes nothing else the gesture reads.
-        DragGesture(minimumDistance: 0, coordinateSpace: .global)
+        DragGesture(minimumDistance: 0, coordinateSpace: TStage.space)
             .onChanged { value in
                 // A touch starting on the flip button is the button's, not the deck's: skip
                 // every state change (no press-and-hold, no throw, no `open()`) so the two
@@ -346,7 +346,7 @@ private struct GoalStrip: View {
             Circle().strokeBorder(Color.white.opacity(0.4), lineWidth: 1.5)
                 .allowsHitTesting(false)
         }
-        .measureRect(into: flipButtonRect, in: .global)
+        .measureRect(into: flipButtonRect, in: TStage.space)
     }
 
     /// The deck card's 3D flip, wrapping the front face and swapping in `back` at the instant the
@@ -479,7 +479,7 @@ private struct GoalStrip: View {
         // the deck, and the last thing written was a mid-animation pose rather than a resting
         // card. Out here the measurement is of the layout slot, which no pose and no entrance
         // ever moves — identical to the old reading at rest, and correct during motion.
-        .measureRect(into: top ? topCardRect : deckScratchRect, in: .global)
+        .measureRect(into: top ? topCardRect : deckScratchRect, in: TStage.space)
     }
 
     private var topOffsetAnimation: Animation? {

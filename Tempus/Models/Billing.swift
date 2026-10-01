@@ -205,11 +205,10 @@ final class Billing {
     /// The plan's own sticker price — "$39.99" or "$7.99".
     func price(_ p: Plan) -> String { money(amount(p), like: p) }
 
-    /// **What a plan costs per month**, which is the number the annual card leads with. A yearly
-    /// total is a big number that invites a flinch; the same commitment restated as "$3.33 a
-    /// month" is the identical amount of money and reads as a third of the monthly plan, which is
-    /// what it is. The annual total is still printed directly underneath — this frames the price,
-    /// it does not hide it.
+    /// **What a plan works out to per month** — a footnote under the billed amount, never the
+    /// headline. The annual card led with this until App Review rejected build 43 under 3.1.2(c):
+    /// the amount actually charged has to be the most conspicuous price on the screen, and a
+    /// calculated figure has to sit below it in position and size.
     func perMonth(_ p: Plan) -> String {
         let monthly = p == .annual ? amount(.annual) / 12 : amount(.monthly)
         return money(round2(monthly), like: p)
@@ -293,17 +292,19 @@ final class Billing {
     var displayPrice: String { price(plan) }
     var displayPeriod: String { periodCopy.short }
 
-    var buyLabel: String {
-        if let trial = trialLabel { return "Start \(trial)" }
-        return package == nil ? "Start 7 days free" : "Upgrade for \(displayPrice)"
-    }
+    /// **Never the trial.** "Start 7 days free" was the biggest thing on the sheet, which is the
+    /// other half of the 3.1.2(c) rejection: a free trial may be stated, but below and smaller
+    /// than the billed amount — so it lives in `subCopy`, and the button only says what it does.
+    var buyLabel: String { "Upgrade" }
 
     var subCopy: String {
         let period = package == nil
             ? (plan == .annual ? "a year" : "a month")
             : periodCopy.long
-        if let trial = trialLabel { return "\(trial), then \(displayPrice) \(period). Cancel any time." }
-        return "\(displayPrice) \(period). Cancel any time."
+        // One line on a 17 Pro: a second one tips the paywall into its scrolling layout, which
+        // parks the Monthly card half under the fold.
+        if let trial = trialLabel { return "\(trial), then \(displayPrice) \(period) until you cancel." }
+        return "\(displayPrice) \(period) until you cancel."
     }
 
     /// True when there is genuinely something to buy. The paywall's button is disabled otherwise,

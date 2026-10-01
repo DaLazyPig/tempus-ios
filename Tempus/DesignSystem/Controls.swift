@@ -399,10 +399,10 @@ private enum Droplet {
     static func radius(hidden: CGFloat, rest: CGFloat) -> CGFloat { rest + (240 - rest) * hidden }
     static func scaleX(hidden: CGFloat) -> CGFloat { 1 - 0.54 * hidden }
     /// A screen height, not the panel's own — same reasoning as `RootView`'s `h`/`w`
-    /// (`UIScreen.main.bounds`): this only has to push the panel comfortably off-screen while
+    /// (`TStage.bounds`): this only has to push the panel comfortably off-screen while
     /// collapsed, and reading it from a `GeometryReader` that mounts alongside the very thing
     /// being animated is exactly the trap CLAUDE.md already documents for `ShopItemScreen`.
-    static var offY: CGFloat { UIScreen.main.bounds.height }
+    static var offY: CGFloat { TStage.bounds.height }
 }
 
 // MARK: - HoldConfirmSheet

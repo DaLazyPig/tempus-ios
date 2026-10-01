@@ -10,8 +10,8 @@ mile.
 Business Class is the paid plan, sold as a monthly or annual subscription through RevenueCat.
 
 The app was built between 9 August and 26 September 2026. This repository is the source of the
-shipped build (1.0.1, build 45), with developer mode since restricted to debug builds. It is
-published as a single snapshot, while the working history stays in a private repository.
+build in App Review (1.0, build 48), with developer mode since restricted to debug builds. It is
+published as snapshots of each submitted build, while the working history stays in a private repository.
 
 ## Build and run
 

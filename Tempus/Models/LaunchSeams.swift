@@ -101,6 +101,11 @@ extension AppModel {
         /// which is exactly the pair of taps the Simulator cannot make. `-tempusPhase redeem`
         /// lands there with no transition at all, so it cannot show this.
         var perm = false
+        /// `-tempusLift`: the floating nav's Fly → Club, back, and Club again, as `FloatingNav`'s
+        /// `onChange` makes it (`.lift`, Club up, Fly down) — the one route between the two tabs,
+        /// and a tap. The second Club is the warm one, so a first-build stall and a real glitch
+        /// can be told apart in one recording.
+        var lift = false
         /// Opens Settings' "Cost per minute" `ChoiceSheet` on its own after a beat, then closes it
         /// again — the only way to watch the droplet play, since a `SetRow` tap is exactly the
         /// gesture the Simulator cannot make. Named for the sheet the user reported as motionless
@@ -157,6 +162,7 @@ extension AppModel {
             s.linkSent = args.contains("-tempusLinkSent")
             s.linked = args.contains("-tempusLinked")
             s.perm = args.contains("-tempusPerm")
+            s.lift = args.contains("-tempusLift")
             s.settingsSpendSheet = args.contains("-tempusSettingsSheet")
             s.appsConfirm = args.contains("-tempusAppsConfirm")
             return s
@@ -166,7 +172,7 @@ extension AppModel {
             phase == nil && step == nil && tier == nil && hours == nil && miles == nil
                 && minutes == nil && policy == nil && passes == nil && goal == nil && !settle && limit == nil && spent == nil && shopItem == nil && cross == nil && cardClose == nil && !cardOpen && face == nil && header == nil
                 && !plus && !dev && !pay && !biz && !atRisk && !gate && !sheet && !morph && !morphClose && !circleReveal
-                && !paywall && !flown && !request && !gift && !linkSent && !linked && !perm && !settingsSpendSheet
+                && !paywall && !flown && !request && !gift && !linkSent && !linked && !perm && !lift && !settingsSpendSheet
         }
     }
 
@@ -287,6 +293,16 @@ extension AppModel {
                 self?.paywall = .open
                 try? await Task.sleep(for: .milliseconds(1500))
                 if self?.paywall == .open { self?.paywall = .closing }
+            }
+        }
+        if s.lift {
+            Task { @MainActor [weak self] in
+                try? await Task.sleep(for: .milliseconds(2600))
+                self?.go(.status, .lift, dir: 1)
+                try? await Task.sleep(for: .milliseconds(2600))
+                self?.go(.home, .lift, dir: -1)
+                try? await Task.sleep(for: .milliseconds(2600))
+                self?.go(.status, .lift, dir: 1)
             }
         }
         if s.perm {

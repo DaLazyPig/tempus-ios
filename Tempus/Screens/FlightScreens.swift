@@ -888,7 +888,7 @@ private extension View {
     func measuredCard(_ rect: Binding<CGRect>) -> some View {
         background {
             GeometryReader { geo in
-                Color.clear.preference(key: CardRectKey.self, value: geo.frame(in: .global))
+                Color.clear.preference(key: CardRectKey.self, value: geo.frame(in: TStage.space))
             }
         }
         .onPreferenceChange(CardRectKey.self) { rect.wrappedValue = $0 }

@@ -160,14 +160,14 @@ struct PassesScreen: View {
     /// `PassArchiveCard` scales every measurement off `width / 268`, so it needs the number the
     /// column is actually going to be — hence the arithmetic rather than a `GeometryReader`, which
     /// collapses to zero ideal height inside this screen's `LazyVStack` and would take the
-    /// section headers' pinning with it. `UIScreen.main.bounds` is the same read
+    /// section headers' pinning with it. `TStage.bounds` is the same read
     /// `Controls.offY` makes, and this app is portrait-only on iPhone.
     private static let gutter: CGFloat = 14
     private static let pageInset: CGFloat = 24
     private static let columns = [GridItem(.flexible(), spacing: gutter),
                                   GridItem(.flexible(), spacing: gutter)]
     private static var tileWidth: CGFloat {
-        (UIScreen.main.bounds.width - pageInset * 2 - gutter) / 2
+        (TStage.bounds.width - pageInset * 2 - gutter) / 2
     }
 
     @ViewBuilder

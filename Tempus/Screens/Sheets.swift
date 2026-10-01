@@ -226,14 +226,17 @@ final class KeyboardTracker {
               let frame = (info[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
               let duration = info[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double
         else { return }
-        let screenHeight = UIScreen.main.bounds.height
-        let next = max(0, screenHeight - frame.origin.y)
+        // UIKit reports the frame in window points; the pill lives on the stage (`TStage`).
+        let next = max(0, TStage.points(UIScreen.main.bounds.height - frame.origin.y))
         // `next` is the keyboard's overlap with the **screen**. A stack laid out inside the safe
         // area already sits `TSafeArea.insets.bottom` above the screen's bottom edge, so padding
         // it by the full height puts the pill exactly that inset too high — and the home indicator
         // is under the keyboard at that point anyway. Read here, in a notification handler, never
         // in a body.
-        let lifted = next > 0 ? max(0, next - TSafeArea.insets.bottom) : 0
+        // On the short-screen stage the hosted app has no safe area (`StageRoot`), so the stack
+        // sits on the bottom edge itself and the keyboard's whole overlap is the lift.
+        let inset = TStage.scale < 1 ? 0 : TSafeArea.insets.bottom
+        let lifted = next > 0 ? max(0, next - inset) : 0
         reported = true
         if lifted > 0, lifted != Self.lastLift { Self.lastLift = lifted }
         withAnimation(Self.curve(info[UIResponder.keyboardAnimationCurveUserInfoKey] as? Int,

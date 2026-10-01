@@ -123,7 +123,7 @@ struct LinkedScreen: View {
                 .tpType(size: TFont.sizeBody, lineHeight: TFont.lhBody)
                 .foregroundStyle(TColor.textSecondary)
 
-            TButton("Start 7 days free", variant: .primary, size: .lg, fullWidth: true) {
+            TButton("See Business Class", variant: .primary, size: .lg, fullWidth: true) {
                 model.paywall = .open
             }
             .padding(.top, 6)

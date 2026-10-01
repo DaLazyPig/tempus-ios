@@ -63,10 +63,51 @@ extension View {
 /// ground reaches the screen edge, and onboarding, which is laid out in that full-bleed space and
 /// would otherwise put its CTA under the home indicator and its back button under the island.
 /// Portrait-locked and single-window, so reading the key window is enough.
+///
+/// In stage points — see `TStage` — which are the window's own on any phone at least
+/// `TStage.designHeight` tall.
 enum TSafeArea {
     static var insets: UIEdgeInsets {
-        UIApplication.shared.connectedScenes
+        let i = UIApplication.shared.connectedScenes
             .lazy.compactMap { $0 as? UIWindowScene }
             .first?.keyWindow?.safeAreaInsets ?? .zero
+        let s = TStage.scale
+        return UIEdgeInsets(top: i.top / s, left: i.left / s, bottom: i.bottom / s, right: i.right / s)
     }
+}
+
+/// **The short-screen stage.** Every screen here was drawn against a 17 Pro and a 16 Plus, and on a
+/// 667pt window — an iPhone SE, and *every iPad*, which runs this iPhone-only app in a 375 × 667
+/// compatibility window — about ten of them ran off the bottom: onboarding's Next buttons, the
+/// Business Class legal links, the flight's dial. App Review rejected build 43 for it (Guideline 4,
+/// on an iPad Air). Rather than a second layout for each, `StageRoot` lays the whole app out on a
+/// canvas `designHeight` tall and scales it down to the window, so a short phone shows the same
+/// screen, smaller.
+///
+/// **On a phone at least `designHeight` tall `scale` is exactly 1 and nothing changes** — no
+/// wrapper, `.global` coordinates, the window's own insets. Everything below is identity there.
+///
+/// Inside the canvas, UIKit's numbers are window points and SwiftUI's are stage points, so the
+/// three ways this app reads the window go through here: `bounds` for `UIScreen.main.bounds`,
+/// `TSafeArea.insets` (already divided), and `space` for what used to be `.global`.
+enum TStage {
+    /// The standard iPhone height (390 × 844). At 812 onboarding's Status Club screen, which has no
+    /// flexible space in its column, put its Next button on the last tier row; 844 clears it.
+    static let designHeight: CGFloat = 844
+    static let spaceName = "tempus.stage"
+
+    /// Portrait-only, so the window never changes height for the life of the process.
+    static let scale: CGFloat = min(1, UIScreen.main.bounds.height / designHeight)
+
+    static var bounds: CGRect {
+        let b = UIScreen.main.bounds
+        return CGRect(x: 0, y: 0, width: b.width / scale, height: b.height / scale)
+    }
+
+    /// Window coordinates in stage points. `.global` inside a scaled canvas is the *scaled* window,
+    /// so a rect measured there and drawn inside the canvas would land short by the scale.
+    static var space: CoordinateSpace { scale < 1 ? .named(spaceName) : .global }
+
+    /// A keyboard or other UIKit frame, from window points to stage points.
+    static func points(_ window: CGFloat) -> CGFloat { window / scale }
 }

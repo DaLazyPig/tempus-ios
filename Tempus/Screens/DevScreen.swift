@@ -84,7 +84,7 @@ struct DevSheet: View {
                 }
             }
             .frame(maxWidth: .infinity)
-            .frame(height: UIScreen.main.bounds.height * 0.86, alignment: .top)
+            .frame(height: TStage.bounds.height * 0.86, alignment: .top)
             .background(TColor.white)
             .clipShape(
                 UnevenRoundedRectangle(topLeadingRadius: 32, bottomLeadingRadius: 0,

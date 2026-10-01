@@ -46,7 +46,7 @@ struct StatusScreen: View {
                     headerBand
                         // The card studio's entrance grows its band out of this one — see
                         // `AppModel.statusHero`. Nothing observes the box, so this costs a store.
-                        .measureRect(into: model.statusHero, in: .global)
+                        .measureRect(into: model.statusHero, in: TStage.space)
                     bodyStack
                 }
             }
@@ -98,7 +98,7 @@ struct StatusScreen: View {
     /// The card takes the width the gutters leave, on every phone: it is authored at 340 and
     /// `StatusCard` scales its artwork to whatever it is given, so a wider phone gets a bigger card
     /// rather than a 342 card with wider margins (which is what the old `min(342, …)` gave a Max).
-    private var cardWidth: CGFloat { UIScreen.main.bounds.width - 48 }
+    private var cardWidth: CGFloat { TStage.bounds.width - 48 }
 
     private var headerBand: some View {
         let st = model.status
@@ -132,7 +132,7 @@ struct StatusScreen: View {
                     .frame(maxWidth: .infinity)
             }
             // Outside the riser's own offset, so its entrance never leaks into the rect.
-            .measureRect(into: model.statusCardBox, in: .global)
+            .measureRect(into: model.statusCardBox, in: TStage.space)
             .padding(.top, 24)
 
             Rise(i: 1) {
@@ -160,7 +160,7 @@ struct StatusScreen: View {
         // nothing about the layout moves — but a rubber-band pull past the top now drags the tier's
         // colour down instead of revealing the ScrollView's `cloud100` above it. Bottom over-scroll
         // and the ground behind the body cards are untouched.
-        .background(band.padding(.top, -UIScreen.main.bounds.height))
+        .background(band.padding(.top, -TStage.bounds.height))
     }
 
     private func headerFact(_ label: String, _ value: String) -> some View {
@@ -323,7 +323,7 @@ struct StatusScreen: View {
                 // The card's full width — the same 340 box the gift is authored on, or as much
                 // of it as the phone leaves inside this card's 44pt of margins (314 on a 17 Pro,
                 // 342 on a 16 Plus). Half size read as a thumbnail of the gift rather than the gift.
-                let w = min(340, UIScreen.main.bounds.width - 88)
+                let w = min(340, TStage.bounds.width - 88)
                 MarkupView(art.personalized(amt: gift.amt, who: model.cardName), background: art.bg,
                            designSize: CGSize(width: 340, height: 214),
                            width: w, cornerRadius: 19 * w / 300)
@@ -609,7 +609,7 @@ struct StatusScreen: View {
                         .tracking(-0.02 * 20)
                         .foregroundStyle(TColor.textPrimary)
                     Spacer(minLength: 0)
-                    Text("7 days free \u{203a}")
+                    Text("Upgrade \u{203a}")
                         .font(TFont.core(.medium, 14))
                         .foregroundStyle(TColor.textAccent)
                 }

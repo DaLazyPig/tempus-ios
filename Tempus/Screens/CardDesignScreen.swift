@@ -104,7 +104,7 @@ struct CardDesignScreen: View {
             let club = model.statusCardBox.rect
             return (0, club.midY > 0 ? club.midY - Self.deckCentreY : -89, 1, 0, nil)
         }
-        return (from.rect.midX - UIScreen.main.bounds.width / 2,
+        return (from.rect.midX - TStage.bounds.width / 2,
                 from.rect.midY - Self.deckCentreY,
                 from.rect.width / CardArt.width,
                 from.rot,
@@ -165,13 +165,17 @@ struct CardDesignScreen: View {
                     guard !Task.isCancelled else { return }
                     // Stage one: the chrome and the card's travel, over their own 300 / 520 ms.
                     withAnimation(.glide(0.3)) { on = false }
-                    // Stage two, the reference's own 300 ms delay then 220 ms: the card is ~92% of
-                    // the way home when the sheet starts to dissolve, so the cross-fade overlays
-                    // two cards a few points apart, never a slab.
-                    withAnimation(.glide(0.22).delay(0.3)) { groundOut = true }
-                    // 520 to finish, plus slack: this sleep can only run late, and late is safe —
-                    // the layer is fully transparent long before it is dropped.
-                    try? await Task.sleep(for: .milliseconds(640))
+                    // Stage two: the sheet dissolves once the card is most of the way home, so the
+                    // cross-fade overlays two cards a few points apart, never a slab. **Not the
+                    // reference's 220 ms glide.** Measured on a 17 Pro, `glide` front-loads so hard
+                    // that at 220 ms three quarters of the dissolve landed in two frames and the club
+                    // read as appearing instantly (29 Sep 2026). A symmetric ease over 420 ms is a
+                    // fade you can see.
+                    withAnimation(.easeInOutTP(TDur.slow).delay(0.28)) { groundOut = true }
+                    // 700 to finish, plus slack: this sleep can only run late, and late is safe —
+                    // the layer is fully transparent before it is dropped. Dropping it mid-fade is
+                    // a cut.
+                    try? await Task.sleep(for: .milliseconds(820))
                     guard !Task.isCancelled else { return }
                     model.cardDesignOut = nil
                 }
@@ -238,7 +242,7 @@ struct CardDesignScreen: View {
                 // The resting height is the club's own measured hero for the same reason the full
                 // height is measured: 500 is 40pt short of it here, which flashed a pale strip
                 // across the band on the first frame. See `heroBottom`.
-                .frame(height: on ? UIScreen.main.bounds.height : heroBottom)
+                .frame(height: on ? TStage.bounds.height : heroBottom)
                 .frame(maxHeight: .infinity, alignment: .top)
                 .animation(.glide(on ? 0.52 : 0.46), value: on)
                 // Colour tracks the finger 1:1 while dragging, and eases on the release.
@@ -287,7 +291,7 @@ struct CardDesignScreen: View {
                     let off = CGFloat(k - index) * Self.step + dx * 0.62
                     let d = min(1, abs(off) / Self.step)
                     StatusCard(tier: tier, variant: k, name: model.cardName,
-                               width: UIScreen.main.bounds.width - 48, owned: model.ownedFaces)
+                               width: TStage.bounds.width - 48, owned: model.ownedFaces)
                         .shadow(color: Color(hex: 0x09111d, opacity: 0.5 - d * 0.34),
                                 radius: (38 - d * 24) / 2, x: 0, y: 26 - d * 18)
                         .scaleEffect(1 - d * 0.15)

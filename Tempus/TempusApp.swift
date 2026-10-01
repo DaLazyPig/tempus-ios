@@ -26,12 +26,17 @@ struct TempusApp: App {
 
     var body: some Scene {
         WindowGroup {
-            RootView()
+            // `StageRoot` hosts the app in its own controller on a short window (an iPad, an SE —
+            // see `TStage`), so everything the screens read has to be inside the closure.
+            StageRoot {
+                RootView()
+                    .environment(model)
+                    .environment(billing)
+                    .environment(identity)
+                    .environment(backend)
+                    .tint(TColor.copper500)
+            }
                 .environment(model)
-                .environment(billing)
-                .environment(identity)
-                .environment(backend)
-                .tint(TColor.copper500)
                 .onOpenURL(perform: handle)
                 .task {
                     #if DEBUG

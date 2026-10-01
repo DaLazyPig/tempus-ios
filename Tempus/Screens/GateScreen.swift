@@ -116,7 +116,7 @@ struct GateScreen: View {
     /// Rising and retracting both travel a full screen height; confirming leaves through the top.
     private var offset: CGFloat {
         guard !raised else { return 0 }
-        let h = UIScreen.main.bounds.height
+        let h = TStage.bounds.height
         return gate.closing == .up ? -h : h
     }
 

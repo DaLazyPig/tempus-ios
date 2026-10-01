@@ -294,7 +294,7 @@ struct PassScreen: View {
     /// of bare card down each side of the band while the house livery beside it sat flush. The
     /// clamp belongs to screens that use `tpScreenWidth()`; this one does not.
     private var bandWidth: CGFloat {
-        UIScreen.main.bounds.width - 48
+        TStage.bounds.width - 48
     }
 
     // MARK: - Parts

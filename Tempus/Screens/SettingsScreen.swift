@@ -98,7 +98,7 @@ struct SettingsScreen: View {
                 VStack(alignment: .leading, spacing: 0) {
                     HStack(spacing: 0) {
                         ORise(i: 0) { closeButton }
-                            .measureRect(into: closeRect, in: .global)
+                            .measureRect(into: closeRect, in: TStage.space)
                         Spacer(minLength: 0)
                     }
                     .padding(.top, 16)
@@ -280,7 +280,7 @@ struct SettingsScreen: View {
                         .tracking(-0.02 * 20)
                         .foregroundStyle(TColor.textPrimary)
                     Spacer()
-                    Text(model.plus ? "Active" : "7 days free \u{203A}")
+                    Text(model.plus ? "Active" : "Upgrade \u{203A}")
                         .font(TFont.core(.medium, 14))
                         .foregroundStyle(TColor.textAccent)
                 }

@@ -1,5 +1,97 @@
 import SwiftUI
 
+/// The short-screen canvas — see `TStage`. On a window shorter than `TStage.designHeight` the app
+/// is hosted in its own `UIHostingController` laid out `1 / scale` times larger, and UIKit scales
+/// that controller's view down to the window. On anything taller it is not applied at all.
+///
+/// **The hosted app gets no safe area at all** (`safeAreaRegions = []`). The iPad's compatibility
+/// window has real insets — 20 top, 25 bottom — and build 46 hid them from the canvas with a
+/// `GeometryReader` that ignored the safe area. That held at rest and leaked mid-transition: every
+/// Fly → Club `lift` on an iPad drew Status Club a status bar too low for ~60 ms and then snapped it
+/// up, while its fade ran on (measured frame by frame, 29 Sep 2026). A full-bleed layer's
+/// `ignoresSafeArea` is withheld for a pass whenever the stack gains a sibling — the same failure
+/// `RootView`'s layer sizing documents — and a scaled canvas has no way to stop real insets
+/// arriving during that pass. A host that has none cannot leak them; with them gone every `lift` was
+/// smooth, cold and warm. The screens clear the status bar with their own top padding, as they did
+/// on build 46, and `TSafeArea` still reports the window's insets for the few places that read them.
+/// The keyboard's region goes with the rest — `KeyboardTracker` draws the one lift this app needs.
+///
+/// The scale is a `UIView` transform rather than a SwiftUI `scaleEffect` so the safe area can be
+/// switched off at a hosting-controller boundary, which only UIKit has.
+struct StageRoot<Content: View>: View {
+    @Environment(AppModel.self) private var model
+    @ViewBuilder var content: () -> Content
+
+    var body: some View {
+        if TStage.scale < 1 {
+            StageHost(content: content)
+                .ignoresSafeArea()
+                // The hosted `RootView` asks for this too, but a nested host's preference never
+                // reaches the window — and the status bar follows the window.
+                .preferredColorScheme(model.barDark ? .dark : .light)
+        } else {
+            content()
+        }
+    }
+}
+
+private struct StageHost<Content: View>: UIViewControllerRepresentable {
+    let content: () -> Content
+
+    func makeUIViewController(context: Context) -> StageHostController<Content> {
+        StageHostController(root: content())
+    }
+
+    func updateUIViewController(_ controller: StageHostController<Content>, context: Context) {
+        controller.host.rootView = StageSpace(content: content())
+    }
+}
+
+private final class StageHostController<Content: View>: UIViewController {
+    let host: UIHostingController<StageSpace<Content>>
+
+    init(root: Content) {
+        host = UIHostingController(rootView: StageSpace(content: root))
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) { fatalError("init(coder:) is not supported") }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .clear
+        host.safeAreaRegions = []
+        host.view.backgroundColor = .clear
+        addChild(host)
+        view.addSubview(host.view)
+        host.didMove(toParent: self)
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        let s = TStage.scale
+        // `frame` is undefined under a transform; bounds and centre are not.
+        host.view.transform = .identity
+        host.view.bounds = CGRect(x: 0, y: 0, width: view.bounds.width / s, height: view.bounds.height / s)
+        host.view.center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
+        host.view.transform = CGAffineTransform(scaleX: s, y: s)
+    }
+
+    override var childForStatusBarStyle: UIViewController? { host }
+    override var childForStatusBarHidden: UIViewController? { host }
+    override var childForHomeIndicatorAutoHidden: UIViewController? { host }
+}
+
+/// Stage coordinates for everything measured inside the canvas — see `TStage.space`.
+private struct StageSpace<Content: View>: View {
+    let content: Content
+
+    var body: some View {
+        content.coordinateSpace(name: TStage.spaceName)
+    }
+}
+
 /// The router.
 ///
 /// While a transition is running, **two layers render** — the phase being left and the phase being
@@ -381,8 +473,8 @@ private struct PhaseLayer: View {
         let dir = t.dir
         var a = Anim()
         // Screen extents the percentage-based keyframes are measured against.
-        let w = UIScreen.main.bounds.width
-        let h = UIScreen.main.bounds.height
+        let w = TStage.bounds.width
+        let h = TStage.bounds.height
 
         switch (t.type, role) {
         case (.zoom, .incoming):
@@ -633,16 +725,25 @@ enum ScreenWarm {
     /// ponytail: a finger already dragging the deck is the case this does not cover, and it costs
     /// that one gesture a single hitch, once per launch. Track a gesture flag on the model only if
     /// that ever proves visible.
+    ///
+    /// **The overlays count too.** The studio's exit is not a `trans` — it is `cardDesignOut`, a copy
+    /// of the studio fading over Status Club — so a warm step started 60 ms into it and froze it for
+    /// 350 ms: the chrome stopped half-faded, the card stopped mid-travel, and Status Club cut in
+    /// when the thread came back. That was the "appears instantly" on every early return from
+    /// Customise (measured 29 Sep 2026, `-tempusFPS 1`). The studio itself, the paywall, the pay
+    /// sheet and the add sheet all animate on their own clocks and get the same courtesy.
     private static func settled(_ model: AppModel) async {
         while model.trans != nil || model.morph != nil || model.circle != nil || model.gate != nil
-            || model.phase == .ob || model.deal {
+            || model.phase == .ob || model.deal
+            || model.phase == .carddesign || model.cardDesignOut != nil
+            || model.paywall != nil || model.addSheet || model.payFlow != nil {
             try? await Task.sleep(for: .milliseconds(120))
         }
     }
 
     private static func render(_ phase: Phase, _ model: AppModel, _ billing: Billing,
                                _ identity: Identity, _ backend: Backend) {
-        let size = UIScreen.main.bounds.size
+        let size = TStage.bounds.size
         let renderer = ImageRenderer(
             content: ScreenFor(phase: phase, warming: true)
                 .frame(width: size.width, height: size.height)
@@ -666,7 +767,7 @@ enum ScreenWarm {
     /// Same trick as `render`, for the one surface that has no `Phase` to be looked up by.
     private static func warmAddSheet(_ model: AppModel, _ billing: Billing,
                                      _ identity: Identity, _ backend: Backend) {
-        let size = UIScreen.main.bounds.size
+        let size = TStage.bounds.size
         let renderer = ImageRenderer(
             content: AddSheet()
                 .frame(width: size.width, height: size.height)

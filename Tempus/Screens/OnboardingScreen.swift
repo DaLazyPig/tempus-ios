@@ -658,8 +658,13 @@ private struct OBPulseDot: View {
 // MARK: - `gate` — the permission gate
 
 /// The gate sits immediately before the picker because the picker cannot open without Screen Time
-/// — the question `apps` asks is unanswerable until this one is. Both buttons advance: a refusal
-/// is a legitimate way to use the app, and every flow works with blocking mocked.
+/// — the question `apps` asks is unanswerable until this one is.
+///
+/// **One button, "Continue", and it always goes on to iOS's own prompt.** App Review rejected
+/// build 43 under 5.1.1(iv) for an "Allow" button and a "Not now" that skipped the system request:
+/// a screen in front of a permission may explain it, but may neither sound like the consent itself
+/// nor offer a way around the real question. The member declines on iOS's sheet if they decline,
+/// and that is still a legitimate way to use the app — every flow works with blocking mocked.
 ///
 /// **The ground is white, where the reference's is `#101d31`.** A deliberate deviation, asked for
 /// on the strength of how it looks: this is the one screen in the sequence that puts a question to
@@ -702,14 +707,14 @@ private struct OBGateScreen: View {
                             RoundedRectangle(cornerRadius: 16, style: .continuous)
                                 .strokeBorder(TColor.sky200, lineWidth: 1.5)
                         )
-                    Text(flow.screenTimeOn ? "Tempus can lock your apps" : "Let Tempus lock your apps")
+                    Text("Tempus can lock your apps")
                         .font(TFont.core(.bold, 40))
                         .tracking(-0.05 * 40)
                         .tpType(size: 40, lineHeight: 1.08)
                         .foregroundStyle(TColor.textPrimary)
                     Text(flow.screenTimeOn
                          ? "Screen Time is connected. It is what makes a flight a flight."
-                         : "iOS will ask for Screen Time. It is what makes a flight a flight.")
+                         : "iOS asks for Screen Time next. Tempus uses it to lock the apps you choose while you fly.")
                         .font(TFont.core(.regular, 18))
                         .tpType(size: 18, lineHeight: 1.55)
                         .foregroundStyle(TColor.steel600)
@@ -718,20 +723,15 @@ private struct OBGateScreen: View {
                 .frame(maxHeight: .infinity, alignment: .center)
                 .padding(.top, 44)
 
-                // Both buttons advance, as the reference's do — a refusal is a legitimate way to
-                // use the app, and every flow works with blocking mocked. Allow now *waits* for
-                // an answer before advancing: the crossing used to fire the instant the button was
-                // tapped, while `requestScreenTimeAuthorization` was still awaiting iOS's consent
-                // sheet — so the crossing played underneath that sheet and the member landed on
-                // the app list having never actually answered it. The button disables itself (and
-                // hides the "Not now" ghost, which is the same advance and would race it) for the
-                // life of the request, and the crossing starts the instant the sheet is dismissed
-                // — granted or declined, both advance the same way.
+                // Continue *waits* for an answer before advancing: the crossing used to fire the
+                // instant the button was tapped, while `requestScreenTimeAuthorization` was still
+                // awaiting iOS's consent sheet — so the crossing played underneath that sheet and
+                // the member landed on the app list having never actually answered it. Granted or
+                // declined, both advance the same way.
                 //
                 // Screen Time can already be on — a member walking onboarding a second time. There
-                // is nothing left to ask then, and nothing to decline: the gate states the position
-                // and the one button carries on immediately.
-                OBPrimaryButton(label: flow.screenTimeOn ? "Continue" : "Allow") {
+                // is nothing left to ask then, and the button carries on immediately.
+                OBPrimaryButton(label: "Continue") {
                     guard !requesting else { return }
                     guard !flow.screenTimeOn else { run(OBScreen.apps.i); return }
                     requesting = true
@@ -744,13 +744,6 @@ private struct OBGateScreen: View {
                     }
                 }
                 .disabled(requesting)
-                if !flow.screenTimeOn {
-                    OBGhostButton(label: "Not now", fill: TColor.sky100,
-                                  foreground: TColor.textMuted) { run(OBScreen.apps.i) }
-                        .padding(.top, 8)
-                        .disabled(requesting)
-                        .opacity(requesting ? 0.5 : 1)
-                }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
             .padding(.top, OBConst.padTop)
