@@ -1,0 +1,1054 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 70;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA00000000000000000000C3 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = AA00000000000000000000C2 /* RevenueCat */; };
+		AA000000000000000000FB01 /* TempusMonitor.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AA000000000000000000D001 /* TempusMonitor.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AA000000000000000000FB02 /* TempusShield.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AA000000000000000000D002 /* TempusShield.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AA000000000000000000FB03 /* TempusShieldAction.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AA000000000000000000D003 /* TempusShieldAction.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AA000000000000000000FB04 /* TempusActivity.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AA000000000000000000D004 /* TempusActivity.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AA000000000000000000FB05 /* TempusReport.appex in Embed ExtensionKit Extensions */ = {isa = PBXBuildFile; fileRef = AA000000000000000000D005 /* TempusReport.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AA000000000000000000F801 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA00000000000000000000AA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA000000000000000000F001;
+			remoteInfo = TempusMonitor;
+		};
+		AA000000000000000000F802 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA00000000000000000000AA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA000000000000000000F002;
+			remoteInfo = TempusShield;
+		};
+		AA000000000000000000F803 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA00000000000000000000AA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA000000000000000000F003;
+			remoteInfo = TempusShieldAction;
+		};
+		AA000000000000000000F804 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA00000000000000000000AA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA000000000000000000F004;
+			remoteInfo = TempusActivity;
+		};
+		AA000000000000000000F805 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA00000000000000000000AA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA000000000000000000F005;
+			remoteInfo = TempusReport;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AA000000000000000000FA01 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				AA000000000000000000FB01 /* TempusMonitor.appex in Embed Foundation Extensions */,
+				AA000000000000000000FB02 /* TempusShield.appex in Embed Foundation Extensions */,
+				AA000000000000000000FB03 /* TempusShieldAction.appex in Embed Foundation Extensions */,
+				AA000000000000000000FB04 /* TempusActivity.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA000000000000000000FA02 /* Embed ExtensionKit Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(EXTENSIONS_FOLDER_PATH)";
+			dstSubfolderSpec = 16;
+			files = (
+				AA000000000000000000FB05 /* TempusReport.appex in Embed ExtensionKit Extensions */,
+			);
+			name = "Embed ExtensionKit Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		AA00000000000000000000A4 /* Tempus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tempus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA000000000000000000D001 /* TempusMonitor.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TempusMonitor.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA000000000000000000D002 /* TempusShield.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TempusShield.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA000000000000000000D003 /* TempusShieldAction.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TempusShieldAction.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA000000000000000000D004 /* TempusActivity.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TempusActivity.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA000000000000000000D005 /* TempusReport.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TempusReport.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		AA000000000000000000F701 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Models/Blocking.swift,
+				Shared/SharedStore.swift,
+			);
+			target = AA000000000000000000F001 /* TempusMonitor */;
+		};
+		AA000000000000000000F702 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Shared/SharedStore.swift,
+			);
+			target = AA000000000000000000F002 /* TempusShield */;
+		};
+		AA000000000000000000F703 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Shared/SharedStore.swift,
+			);
+			target = AA000000000000000000F003 /* TempusShieldAction */;
+		};
+		AA000000000000000000F704 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Fonts/Outfit-Bold.ttf",
+				"Fonts/Outfit-Regular.ttf",
+				"Fonts/Outfit-SemiBold.ttf",
+				Shared/CarrierMark.swift,
+				Shared/FlightActivityAttributes.swift,
+				Shared/UnlockActivityAttributes.swift,
+			);
+			target = AA000000000000000000F004 /* TempusActivity */;
+		};
+		AA000000000000000000F705 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Fonts/Outfit-Bold.ttf",
+				"Fonts/Outfit-Medium.ttf",
+				"Fonts/Outfit-Regular.ttf",
+				"Fonts/Outfit-SemiBold.ttf",
+				Shared/SharedStore.swift,
+			);
+			target = AA000000000000000000F005 /* TempusReport */;
+		};
+		AA000000000000000000FC01 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = AA000000000000000000F001 /* TempusMonitor */;
+		};
+		AA000000000000000000FC02 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = AA000000000000000000F002 /* TempusShield */;
+		};
+		AA000000000000000000FC03 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = AA000000000000000000F003 /* TempusShieldAction */;
+		};
+		AA000000000000000000FC04 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = AA000000000000000000F004 /* TempusActivity */;
+		};
+		AA000000000000000000FC05 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = AA000000000000000000F005 /* TempusReport */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		AA00000000000000000000A1 /* Tempus */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (AA000000000000000000F701 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, AA000000000000000000F702 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, AA000000000000000000F703 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, AA000000000000000000F704 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, AA000000000000000000F705 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Tempus; sourceTree = "<group>"; };
+		AA000000000000000000E001 /* TempusMonitor */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (AA000000000000000000FC01 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = TempusMonitor; sourceTree = "<group>"; };
+		AA000000000000000000E002 /* TempusShield */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (AA000000000000000000FC02 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = TempusShield; sourceTree = "<group>"; };
+		AA000000000000000000E003 /* TempusShieldAction */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (AA000000000000000000FC03 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = TempusShieldAction; sourceTree = "<group>"; };
+		AA000000000000000000E004 /* TempusActivity */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (AA000000000000000000FC04 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = TempusActivity; sourceTree = "<group>"; };
+		AA000000000000000000E005 /* TempusReport */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (AA000000000000000000FC05 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = TempusReport; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AA00000000000000000000A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA00000000000000000000C3 /* RevenueCat in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA000000000000000000F201 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA000000000000000000F202 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA000000000000000000F203 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA000000000000000000F204 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA000000000000000000F205 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AA00000000000000000000A2 = {
+			isa = PBXGroup;
+			children = (
+				AA00000000000000000000A1 /* Tempus */,
+				AA000000000000000000E001 /* TempusMonitor */,
+				AA000000000000000000E002 /* TempusShield */,
+				AA000000000000000000E003 /* TempusShieldAction */,
+				AA000000000000000000E004 /* TempusActivity */,
+				AA000000000000000000E005 /* TempusReport */,
+				AA00000000000000000000A3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AA00000000000000000000A3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA00000000000000000000A4 /* Tempus.app */,
+				AA000000000000000000D001 /* TempusMonitor.appex */,
+				AA000000000000000000D002 /* TempusShield.appex */,
+				AA000000000000000000D003 /* TempusShieldAction.appex */,
+				AA000000000000000000D004 /* TempusActivity.appex */,
+				AA000000000000000000D005 /* TempusReport.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AA00000000000000000000A5 /* Tempus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA00000000000000000000A6 /* Build configuration list for PBXNativeTarget "Tempus" */;
+			buildPhases = (
+				AA00000000000000000000A7 /* Sources */,
+				AA00000000000000000000A8 /* Frameworks */,
+				AA00000000000000000000A9 /* Resources */,
+				AA000000000000000000FA01 /* Embed Foundation Extensions */,
+				AA000000000000000000FA02 /* Embed ExtensionKit Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA000000000000000000F901 /* PBXTargetDependency */,
+				AA000000000000000000F902 /* PBXTargetDependency */,
+				AA000000000000000000F903 /* PBXTargetDependency */,
+				AA000000000000000000F904 /* PBXTargetDependency */,
+				AA000000000000000000F905 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				AA00000000000000000000A1 /* Tempus */,
+			);
+			name = Tempus;
+			packageProductDependencies = (
+				AA00000000000000000000C2 /* RevenueCat */,
+			);
+			productName = Tempus;
+			productReference = AA00000000000000000000A4 /* Tempus.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AA000000000000000000F001 /* TempusMonitor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA000000000000000000F401 /* Build configuration list for PBXNativeTarget "TempusMonitor" */;
+			buildPhases = (
+				AA000000000000000000F101 /* Sources */,
+				AA000000000000000000F201 /* Frameworks */,
+				AA000000000000000000F301 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				AA000000000000000000E001 /* TempusMonitor */,
+			);
+			name = TempusMonitor;
+			packageProductDependencies = (
+			);
+			productName = TempusMonitor;
+			productReference = AA000000000000000000D001 /* TempusMonitor.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		AA000000000000000000F002 /* TempusShield */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA000000000000000000F402 /* Build configuration list for PBXNativeTarget "TempusShield" */;
+			buildPhases = (
+				AA000000000000000000F102 /* Sources */,
+				AA000000000000000000F202 /* Frameworks */,
+				AA000000000000000000F302 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				AA000000000000000000E002 /* TempusShield */,
+			);
+			name = TempusShield;
+			packageProductDependencies = (
+			);
+			productName = TempusShield;
+			productReference = AA000000000000000000D002 /* TempusShield.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		AA000000000000000000F003 /* TempusShieldAction */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA000000000000000000F403 /* Build configuration list for PBXNativeTarget "TempusShieldAction" */;
+			buildPhases = (
+				AA000000000000000000F103 /* Sources */,
+				AA000000000000000000F203 /* Frameworks */,
+				AA000000000000000000F303 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				AA000000000000000000E003 /* TempusShieldAction */,
+			);
+			name = TempusShieldAction;
+			packageProductDependencies = (
+			);
+			productName = TempusShieldAction;
+			productReference = AA000000000000000000D003 /* TempusShieldAction.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		AA000000000000000000F004 /* TempusActivity */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA000000000000000000F404 /* Build configuration list for PBXNativeTarget "TempusActivity" */;
+			buildPhases = (
+				AA000000000000000000F104 /* Sources */,
+				AA000000000000000000F204 /* Frameworks */,
+				AA000000000000000000F304 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				AA000000000000000000E004 /* TempusActivity */,
+			);
+			name = TempusActivity;
+			packageProductDependencies = (
+			);
+			productName = TempusActivity;
+			productReference = AA000000000000000000D004 /* TempusActivity.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		AA000000000000000000F005 /* TempusReport */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA000000000000000000F405 /* Build configuration list for PBXNativeTarget "TempusReport" */;
+			buildPhases = (
+				AA000000000000000000F105 /* Sources */,
+				AA000000000000000000F205 /* Frameworks */,
+				AA000000000000000000F305 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				AA000000000000000000E005 /* TempusReport */,
+			);
+			name = TempusReport;
+			packageProductDependencies = (
+			);
+			productName = TempusReport;
+			productReference = AA000000000000000000D005 /* TempusReport.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AA00000000000000000000AA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2610;
+				LastUpgradeCheck = 2610;
+				TargetAttributes = {
+					AA00000000000000000000A5 = {
+						CreatedOnToolsVersion = 26.1;
+					};
+					AA000000000000000000F001 = {
+						CreatedOnToolsVersion = 26.1;
+					};
+					AA000000000000000000F002 = {
+						CreatedOnToolsVersion = 26.1;
+					};
+					AA000000000000000000F003 = {
+						CreatedOnToolsVersion = 26.1;
+					};
+					AA000000000000000000F004 = {
+						CreatedOnToolsVersion = 26.1;
+					};
+				};
+			};
+			buildConfigurationList = AA00000000000000000000AB /* Build configuration list for PBXProject "Tempus" */;
+			compatibilityVersion = "Xcode 15.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AA00000000000000000000A2;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				AA00000000000000000000C1 /* XCRemoteSwiftPackageReference "purchases-ios" */,
+			);
+			productRefGroup = AA00000000000000000000A3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AA00000000000000000000A5 /* Tempus */,
+				AA000000000000000000F001 /* TempusMonitor */,
+				AA000000000000000000F002 /* TempusShield */,
+				AA000000000000000000F003 /* TempusShieldAction */,
+				AA000000000000000000F004 /* TempusActivity */,
+				AA000000000000000000F005 /* TempusReport */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AA00000000000000000000A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA000000000000000000F301 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA000000000000000000F302 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA000000000000000000F303 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA000000000000000000F304 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA000000000000000000F305 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AA00000000000000000000A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA000000000000000000F101 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA000000000000000000F102 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA000000000000000000F103 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA000000000000000000F104 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA000000000000000000F105 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AA000000000000000000F901 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA000000000000000000F001 /* TempusMonitor */;
+			targetProxy = AA000000000000000000F801 /* PBXContainerItemProxy */;
+		};
+		AA000000000000000000F902 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA000000000000000000F002 /* TempusShield */;
+			targetProxy = AA000000000000000000F802 /* PBXContainerItemProxy */;
+		};
+		AA000000000000000000F903 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA000000000000000000F003 /* TempusShieldAction */;
+			targetProxy = AA000000000000000000F803 /* PBXContainerItemProxy */;
+		};
+		AA000000000000000000F904 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA000000000000000000F004 /* TempusActivity */;
+			targetProxy = AA000000000000000000F804 /* PBXContainerItemProxy */;
+		};
+		AA000000000000000000F905 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA000000000000000000F005 /* TempusReport */;
+			targetProxy = AA000000000000000000F805 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		AA00000000000000000000B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AA00000000000000000000B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AA00000000000000000000B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Tempus.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 45;
+				DEVELOPMENT_TEAM = T7CTRA8XT3;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.crescerestudios.tempus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		AA00000000000000000000B4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Tempus.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 45;
+				DEVELOPMENT_TEAM = T7CTRA8XT3;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = T7CTRA8XT3;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.crescerestudios.tempus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Tempus: Focus Timer";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Tempus: Focus Timer";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		AA000000000000000000F501 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TempusMonitor/TempusMonitor.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 45;
+				DEVELOPMENT_TEAM = T7CTRA8XT3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TempusMonitor/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "$(TARGET_NAME)";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.crescerestudios.tempus.monitor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		AA000000000000000000F502 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TempusShield/TempusShield.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 45;
+				DEVELOPMENT_TEAM = T7CTRA8XT3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TempusShield/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "$(TARGET_NAME)";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.crescerestudios.tempus.shield;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		AA000000000000000000F503 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TempusShieldAction/TempusShieldAction.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 45;
+				DEVELOPMENT_TEAM = T7CTRA8XT3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TempusShieldAction/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "$(TARGET_NAME)";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.crescerestudios.tempus.shieldaction;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		AA000000000000000000F504 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 45;
+				DEVELOPMENT_TEAM = T7CTRA8XT3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TempusActivity/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "$(TARGET_NAME)";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.crescerestudios.tempus.activity;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		AA000000000000000000F505 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TempusReport/TempusReport.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 45;
+				DEVELOPMENT_TEAM = T7CTRA8XT3;
+				EXTENSIONKIT_EXTENSION = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TempusReport/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "$(TARGET_NAME)";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.crescerestudios.tempus.report;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		AA000000000000000000F601 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TempusMonitor/TempusMonitor.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 45;
+				DEVELOPMENT_TEAM = T7CTRA8XT3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TempusMonitor/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "$(TARGET_NAME)";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.crescerestudios.tempus.monitor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Tempus Monitor App Store";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		AA000000000000000000F602 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TempusShield/TempusShield.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 45;
+				DEVELOPMENT_TEAM = T7CTRA8XT3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TempusShield/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "$(TARGET_NAME)";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.crescerestudios.tempus.shield;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Tempus Shield App Store";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		AA000000000000000000F603 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TempusShieldAction/TempusShieldAction.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 45;
+				DEVELOPMENT_TEAM = T7CTRA8XT3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TempusShieldAction/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "$(TARGET_NAME)";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.crescerestudios.tempus.shieldaction;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Tempus Shield Action App Store";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		AA000000000000000000F604 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 45;
+				DEVELOPMENT_TEAM = T7CTRA8XT3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TempusActivity/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "$(TARGET_NAME)";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.crescerestudios.tempus.activity;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Tempus Activity App Store";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		AA000000000000000000F605 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TempusReport/TempusReport.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 45;
+				DEVELOPMENT_TEAM = T7CTRA8XT3;
+				EXTENSIONKIT_EXTENSION = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TempusReport/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "$(TARGET_NAME)";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.crescerestudios.tempus.report;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Tempus Report App Store";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AA00000000000000000000A6 /* Build configuration list for PBXNativeTarget "Tempus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA00000000000000000000B3 /* Debug */,
+				AA00000000000000000000B4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA00000000000000000000AB /* Build configuration list for PBXProject "Tempus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA00000000000000000000B1 /* Debug */,
+				AA00000000000000000000B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA000000000000000000F401 /* Build configuration list for PBXNativeTarget "TempusMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA000000000000000000F501 /* Debug */,
+				AA000000000000000000F601 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA000000000000000000F402 /* Build configuration list for PBXNativeTarget "TempusShield" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA000000000000000000F502 /* Debug */,
+				AA000000000000000000F602 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA000000000000000000F403 /* Build configuration list for PBXNativeTarget "TempusShieldAction" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA000000000000000000F503 /* Debug */,
+				AA000000000000000000F603 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA000000000000000000F404 /* Build configuration list for PBXNativeTarget "TempusActivity" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA000000000000000000F504 /* Debug */,
+				AA000000000000000000F604 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA000000000000000000F405 /* Build configuration list for PBXNativeTarget "TempusReport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA000000000000000000F505 /* Debug */,
+				AA000000000000000000F605 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AA00000000000000000000C1 /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AA00000000000000000000C2 /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA00000000000000000000C1 /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCat;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = AA00000000000000000000AA /* Project object */;
+}

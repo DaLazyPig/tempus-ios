@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDisplayName</key>
+	<string>Tempus Report</string>
+	<key>EXAppExtensionAttributes</key>
+	<dict>
+		<key>EXExtensionPointIdentifier</key>
+		<string>com.apple.deviceactivityui.report-extension</string>
+	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Outfit-Bold.ttf</string>
+		<string>Outfit-Medium.ttf</string>
+		<string>Outfit-Regular.ttf</string>
+		<string>Outfit-SemiBold.ttf</string>
+	</array>
+</dict>
+</plist>

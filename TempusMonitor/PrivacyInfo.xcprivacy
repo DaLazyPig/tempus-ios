@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Required since May 2024 for any binary that touches a "required reason" API. Every target
+	     here reads UserDefaults: the app its own store (CA92.1) and the App Group it shares with
+	     the extensions (1C8F.1). No tracking, no tracking domains. The collected-data list is the
+	     app's alone and mirrors the App Privacy answers in App Store Connect and the privacy
+	     policy: name, email and a provider id from sign-in, the subscription through Apple, and
+	     the backup blob (subjects, flight log, settings). Screen Time usage is deliberately absent —
+	     it never reaches this app; the report extension draws it and hands nothing back. -->
+	<key>NSPrivacyTracking</key>
+	<false/>
+	<key>NSPrivacyTrackingDomains</key>
+	<array/>
+	<key>NSPrivacyCollectedDataTypes</key>
+	<array/>
+	<key>NSPrivacyAccessedAPITypes</key>
+	<array>
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategoryUserDefaults</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>CA92.1</string>
+				<string>1C8F.1</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

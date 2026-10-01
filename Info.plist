@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.crescerestudios.tempus.withdraw</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>tempus</string>
+			</array>
+		</dict>
+	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>ArchivoBlack-Regular.ttf</string>
+		<string>BigShouldersDisplay-Bold.ttf</string>
+		<string>BigShouldersDisplay-Regular.ttf</string>
+		<string>BodoniModa-Black.ttf</string>
+		<string>BodoniModa-BlackItalic.ttf</string>
+		<string>BodoniModa-Bold.ttf</string>
+		<string>BodoniModa-BoldItalic.ttf</string>
+		<string>BodoniModa-ExtraBold.ttf</string>
+		<string>BodoniModa-ExtraBoldItalic.ttf</string>
+		<string>BodoniModa-Italic.ttf</string>
+		<string>BodoniModa-Medium.ttf</string>
+		<string>BodoniModa-MediumItalic.ttf</string>
+		<string>BodoniModa-Regular.ttf</string>
+		<string>BodoniModa-SemiBold.ttf</string>
+		<string>BodoniModa-SemiBoldItalic.ttf</string>
+		<string>CormorantGaramond-Bold.ttf</string>
+		<string>CormorantGaramond-BoldItalic.ttf</string>
+		<string>CormorantGaramond-Italic.ttf</string>
+		<string>CormorantGaramond-Light.ttf</string>
+		<string>CormorantGaramond-LightItalic.ttf</string>
+		<string>CormorantGaramond-Medium.ttf</string>
+		<string>CormorantGaramond-MediumItalic.ttf</string>
+		<string>CormorantGaramond-Regular.ttf</string>
+		<string>CormorantGaramond-SemiBold.ttf</string>
+		<string>CormorantGaramond-SemiBoldItalic.ttf</string>
+		<string>DMMono-Medium.ttf</string>
+		<string>DMMono-Regular.ttf</string>
+		<string>Italiana-Regular.ttf</string>
+		<string>Outfit-Bold.ttf</string>
+		<string>Outfit-ExtraBold.ttf</string>
+		<string>Outfit-Light.ttf</string>
+		<string>Outfit-Medium.ttf</string>
+		<string>Outfit-Regular.ttf</string>
+		<string>Outfit-SemiBold.ttf</string>
+		<string>Syne-Bold.ttf</string>
+		<string>Syne-ExtraBold.ttf</string>
+		<string>Syne-Medium.ttf</string>
+		<string>Syne-Regular.ttf</string>
+		<string>Syne-SemiBold.ttf</string>
+	</array>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIColorName</key>
+		<string>LaunchBackground</string>
+	</dict>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Tempus asks for Face ID to confirm it is you before miles leave your balance.</string>
+	<!-- Only HTTPS, no custom crypto: exempt, so the export-compliance question is answered here
+	     once instead of at every upload. -->
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+	<key>RevenueCatAPIKey</key>
+	<string>appl_oxwSWlTJkJupkbHXhlwnSmXKHLf</string>
+	<key>SupabaseURL</key>
+	<string>https://yyvvjaryykobialjbrjb.supabase.co</string>
+	<key>SupabaseAnonKey</key>
+	<string>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl5dnZqYXJ5eWtvYmlhbGpicmpiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkyMzcxOTQsImV4cCI6MjEwNDgxMzE5NH0.qm-7699EpCb85U5xf0xXMVi85YzmlIGYHpIC7gGN8fk</string>
+	<key>GIDClientID</key>
+	<string>147678921544-olc41rv2l4pae7lklrch3b2j6kees9e3.apps.googleusercontent.com</string>
+</dict>
+</plist>

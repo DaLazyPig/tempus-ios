@@ -1,0 +1,22 @@
+node_modules/
+dist/
+.DS_Store
+xcuserdata/
+DerivedData/
+build/
+*.xcuserstate
+
+landing/
+Tempus.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcuserstate
+.claude/worktrees/
+
+# Secrets: never commit these. A .env with a database password was committed once (12 Aug 2026).
+.env
+.env.*
+!.env.example
+*.p8
+
+# Reference books, not source
+*.epub
+*.pdf
