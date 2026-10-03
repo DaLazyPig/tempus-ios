@@ -28,7 +28,7 @@ Purchases are managed through RevenueCat, which works on top of StoreKit 2. All 
 
 A lot of the code in Billing.swift came from problems we ran into along the way.
 
-- The annual plan (39.99)isselectedbydefault,withthemonthlyplan(7.99) next to it to clearly show the annual saving. The app works out the saving percentage automatically. At first we only offered the annual plan, but on 21 September we added the monthly plan after realising people wanted to try it for a month first.
+- The annual plan (\$39.99) is selected by default, with the monthly plan (\$7.99) next to it to clearly show the annual saving. The app works out the saving percentage automatically. At first we only offered the annual plan, but on 21 September we added the monthly plan after realising people wanted to try it for a month first.
 - The one week free trial only appears if RevenueCat confirms that Apple ID is eligible. Eligibility is checked again whenever you switch plans because it's different for each product, so we never offer a free week the receipt won't honour.
 - Prices are shown in the store's local currency instead of a hardcoded dollar sign.
 - App Review rejected build 43 because the per month price on the annual plan card was displayed more prominently than the amount actually charged. Now the billed price is always the biggest figure on the screen, with the trial and per month costs shown underneath it.
